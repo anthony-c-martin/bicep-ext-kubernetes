@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.Bicep.Local.Extension" Version="0.32.4" />
-    <PackageReference Include="Azure.Deployments.Extensibility.Providers.Kubernetes" Version="0.1.55" />
+    <PackageReference Include="Azure.Deployments.Extensibility.Providers.Kubernetes" Version="0.1.67" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.63.0" />
   </ItemGroup>
 </Project>

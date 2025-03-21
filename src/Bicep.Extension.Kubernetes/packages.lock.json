@@ -15,12 +15,12 @@
       },
       "Azure.Deployments.Extensibility.Providers.Kubernetes": {
         "type": "Direct",
-        "requested": "[0.1.55, )",
-        "resolved": "0.1.55",
-        "contentHash": "4aDbA+mbxAL1JAJTBPaoj0TxucswrnsjUrRyfL1pjDAF+GOWtHCubnEAyh1Qs+XKW1ebQHVjyrG6VvkYnS7XQQ==",
+        "requested": "[0.1.67, )",
+        "resolved": "0.1.67",
+        "contentHash": "ULmgC6CUE+vLojTCRzrKvKArhTuxBImfbSXJGnC+q46Vacir+Xas48V9D7W9JSo3KyBX48HT8J5RsDywV5kfGA==",
         "dependencies": {
-          "Azure.Deployments.Extensibility.Core": "0.1.55",
-          "CsvHelper": "32.0.3",
+          "Azure.Deployments.Extensibility.Core": "0.1.67",
+          "CsvHelper": "33.0.1",
           "KubernetesClient": "14.0.2"
         }
       },
@@ -37,9 +37,9 @@
       },
       "Microsoft.NET.ILLink.Tasks": {
         "type": "Direct",
-        "requested": "[8.0.13, )",
-        "resolved": "8.0.13",
-        "contentHash": "R19ZTaRiQAK+xo9ZwaHbF/1vb1wwR1Wn5+sqp9v8+CDjbdS8R6qftKdw0VSXWKm7VAMi7P+NCU4zxDzhEWcAwQ=="
+        "requested": "[8.0.11, )",
+        "resolved": "8.0.11",
+        "contentHash": "zk5lnZrYJgtuJG8L4v17Ej8rZ3PUcR2iweNV08BaO5LbYHIi2wNaVNcJoLxvqgQdnjLlKnCCfVGLDr6QHeAarQ=="
       },
       "Microsoft.SourceLink.GitHub": {
         "type": "Direct",
@@ -53,13 +53,13 @@
       },
       "Azure.Deployments.Extensibility.Core": {
         "type": "Transitive",
-        "resolved": "0.1.55",
-        "contentHash": "iMZhx89YLqHaPGA20LXlzDBty7ov/UgOdxLudJtYwBXkalfSRHLPNKRnJVeGM3EZc9897LeoPyfJ8NvyLeZcgQ==",
+        "resolved": "0.1.67",
+        "contentHash": "0fMjp82TFQvW95Le0PENdeMV81fiyUFY0TGR6XHr6gb7i2w2SK/z9txS83kAjTh9JOCFG7lGt0uxeuwjhGMpuA==",
         "dependencies": {
-          "JsonPatch.Net": "3.1.0",
-          "JsonPath.Net": "1.1.0",
-          "JsonPointer.Net": "5.0.0",
-          "JsonSchema.Net": "7.0.4"
+          "JsonPatch.Net": "3.1.1",
+          "JsonPath.Net": "1.1.6",
+          "JsonPointer.Net": "5.0.2",
+          "JsonSchema.Net": "7.2.3"
         }
       },
       "CommandLineParser": {
@@ -69,8 +69,8 @@
       },
       "CsvHelper": {
         "type": "Transitive",
-        "resolved": "32.0.3",
-        "contentHash": "JNDkd4Wc2Tim5IuyL8Ai13RhzRvaHItseEvlJ2YRkx2SMBFrIsW8a5+/o4/O1jsb6mlviihR6Hfyn+nqY6CurA=="
+        "resolved": "33.0.1",
+        "contentHash": "fev4lynklAU2A9GVMLtwarkwaanjSYB4wUqO2nOJX5hnzObORzUqVLe+bDYCUyIIRQM4o5Bsq3CcyJR89iMmEQ=="
       },
       "Fractions": {
         "type": "Transitive",
@@ -156,29 +156,29 @@
       },
       "Json.More.Net": {
         "type": "Transitive",
-        "resolved": "2.0.1.2",
-        "contentHash": "uF3QeiaXEfH92emz0/BWUiNtMSfxIIvgynuB0Bf1vF4s8eWTcZitBx9l+g/FDaJk5XxqBv9buQXizXKQcXFG1w=="
+        "resolved": "2.0.2",
+        "contentHash": "izscdjjk8EAHDBCjyz7V7n77SzkrSjh/hUGV6cyR6PlVdjYDh5ohc8yqvwSqJ9+6Uof8W6B24dIHlDKD+I1F8A=="
       },
       "JsonPatch.Net": {
         "type": "Transitive",
-        "resolved": "3.1.0",
-        "contentHash": "BS/8aoXm5mEA/8f7SzhfXEitsEbqERME7xzuRbCDvBXtS2mcAoPAq11L324rhARJfRZ/nGso/KFfggIIdyytww==",
+        "resolved": "3.1.1",
+        "contentHash": "dLAUhmL7RgezL8lkBpzf+O4U4sEtbGE9DDF858MiQdNmGK8LYBfLqO73n5N288e5H8jVvwypQG/DUJunWvaJyQ==",
         "dependencies": {
-          "JsonPointer.Net": "5.0.0"
+          "JsonPointer.Net": "5.0.2"
         }
       },
       "JsonPath.Net": {
         "type": "Transitive",
-        "resolved": "1.1.0",
-        "contentHash": "Njbt3xuyiJ41zkut0nrKbHL7Hpxb39siV/KchPnXKVNGnhnYqIUmiWh653EfRK4lG8H+ds08bNrw5/3jl9ZC3A==",
+        "resolved": "1.1.6",
+        "contentHash": "FQLbFJdjIa70GdYGR3RpdGkLTMZwQCqcd8gC35yx6aGofVEP3QxMvSuXHn75N30jj9SS6yvsPPTDzJmPMt/Mdw==",
         "dependencies": {
-          "Json.More.Net": "2.0.1.2"
+          "Json.More.Net": "2.0.2"
         }
       },
       "JsonPointer.Net": {
         "type": "Transitive",
-        "resolved": "5.0.0",
-        "contentHash": "fm4T5w20AY6C+p5/pJr0vrXRNGgtSfHl34I1LxC9zdPwS9S3j0GiR1Mz/CVPWKDXXGDpCt1APHpCq7kn5adCfA==",
+        "resolved": "5.0.2",
+        "contentHash": "H/OtixKadr+ja1j7Fru3WG56V9zP0AKT1Bd0O7RWN/zH1bl8ZIwW9aCa4+xvzuVvt4SPmrvBu3G6NpAkNOwNAA==",
         "dependencies": {
           "Humanizer.Core": "2.14.1",
           "Json.More.Net": "2.0.1.2"
@@ -186,8 +186,8 @@
       },
       "JsonSchema.Net": {
         "type": "Transitive",
-        "resolved": "7.0.4",
-        "contentHash": "R0Hk2Tr/np4Q1NO8CBjyQsoiD1iFJyEQP20Sw7JnZCNGJoaSBe+g4b+nZqnBXPQhiqY5LGZ8JZwZkRh/eKZhEQ==",
+        "resolved": "7.2.3",
+        "contentHash": "O3KclMcPVFYTZsTeZBpwtKd/lYrNc3AFR+xi9j3Q4CfhDufOUx25TMMWJOcFRrqVklvKQ4Kl+0UhlNX1iDGoRw==",
         "dependencies": {
           "JsonPointer.Net": "5.0.0"
         }
