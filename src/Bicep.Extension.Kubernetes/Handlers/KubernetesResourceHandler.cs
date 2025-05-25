@@ -9,22 +9,23 @@ using System.Text.Json.Nodes;
 using System.Text.Json;
 using ExtCore = Azure.Deployments.Extensibility.Core;
 using Json.More;
+using Azure.Deployments.Extensibility.Core.Exceptions;
 
 namespace Bicep.Extension.Kubernetes.Handlers;
 
 public partial class KubernetesResourceHandler : IGenericResourceHandler
 {
-    public async Task<LocalExtensibilityOperationResponse> Delete(ResourceReference request, CancellationToken cancellationToken)
-        => Convert(await new KubernetesProvider().DeleteAsync(Convert(request), cancellationToken), request.Type, request.ApiVersion);
+    public Task<LocalExtensibilityOperationResponse> Delete(ResourceReference request, CancellationToken cancellationToken)
+        => WrapExceptions(async () => Convert(await new KubernetesProvider().DeleteAsync(Convert(request), cancellationToken), request.Type, request.ApiVersion));
 
-    public async Task<LocalExtensibilityOperationResponse> Get(ResourceReference request, CancellationToken cancellationToken)
-        => Convert(await new KubernetesProvider().GetAsync(Convert(request), cancellationToken), request.Type, request.ApiVersion);
+    public Task<LocalExtensibilityOperationResponse> Get(ResourceReference request, CancellationToken cancellationToken)
+        => WrapExceptions(async () => Convert(await new KubernetesProvider().GetAsync(Convert(request), cancellationToken), request.Type, request.ApiVersion));
 
-    public async Task<LocalExtensibilityOperationResponse> Preview(ResourceSpecification request, CancellationToken cancellationToken)
-        => Convert(await new KubernetesProvider().PreviewSaveAsync(Convert(request), cancellationToken), request.Type, request.ApiVersion);
+    public Task<LocalExtensibilityOperationResponse> Preview(ResourceSpecification request, CancellationToken cancellationToken)
+        => WrapExceptions(async () => Convert(await new KubernetesProvider().PreviewSaveAsync(Convert(request), cancellationToken), request.Type, request.ApiVersion));
 
-    public async Task<LocalExtensibilityOperationResponse> CreateOrUpdate(ResourceSpecification request, CancellationToken cancellationToken)
-        => Convert(await new KubernetesProvider().SaveAsync(Convert(request), cancellationToken), request.Type, request.ApiVersion);
+    public Task<LocalExtensibilityOperationResponse> CreateOrUpdate(ResourceSpecification request, CancellationToken cancellationToken)
+        => WrapExceptions(async () => Convert(await new KubernetesProvider().SaveAsync(Convert(request), cancellationToken), request.Type, request.ApiVersion));
 
     private static ExtCore.ExtensibilityOperationRequest Convert(ResourceSpecification request)
     {
@@ -63,6 +64,27 @@ public partial class KubernetesResourceHandler : IGenericResourceHandler
                     null);
             default:
                 throw new InvalidOperationException($"Unexpected response type: {response.GetType()}");
+        }
+    }
+
+    private static async Task<LocalExtensibilityOperationResponse> WrapExceptions(Func<Task<LocalExtensibilityOperationResponse>> func)
+    {
+        try
+        {
+            return await func();
+        }
+        catch (ExtensibilityException ex) when (ex.Errors.Count() == 1)
+        {
+            var error = ex.Errors.First();
+            return new(
+                null,
+                new(new(error.Code, error.Target.ToString(), error.Message, null, null)));
+        }
+        catch (ExtensibilityException ex)
+        {
+            return new(
+                null,
+                new(new("MultipleErrorsOccurred", "", "Multiple errors occurred", [.. ex.Errors.Select(x => new ErrorDetail(x.Code, x.Target.ToString(), x.Message))], null)));
         }
     }
 }

@@ -57,9 +57,11 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-  
-      - name: Intall CLI
-        run: az bicep install --version v0.30.23
+
+      - name: Intall Bicep
+        run: |
+          az config set bicep.use_binary_from_path=false
+          az bicep install
       
       - name: Run nbgv
         id: nbgv
