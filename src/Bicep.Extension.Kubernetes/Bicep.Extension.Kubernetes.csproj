@@ -10,8 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Bicep.Local.Extension" Version="0.35.1" />
+    <PackageReference Include="Azure.Bicep.Local.Extension" Version="0.36.1" />
     <PackageReference Include="Azure.Deployments.Extensibility.Providers.Kubernetes" Version="0.1.67" />
-    <PackageReference Include="Grpc.AspNetCore" Version="2.63.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
   </ItemGroup>
 </Project>
