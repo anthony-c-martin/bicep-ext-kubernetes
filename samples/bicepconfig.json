@@ -1,7 +1,7 @@
 {
   "experimentalFeaturesEnabled": {
-    "extensibility": true,
-    "localDeploy": true
+    "localDeploy": true,
+    "ociEnabled": true
   },
   "cloud": {
     "credentialPrecedence": [
@@ -10,7 +10,8 @@
     "currentProfile": "AzureCloud"
   },
   "extensions": {
-    "kubernetes": "br:bicepextdemo.azurecr.io/extensions/kubernetes:0.1.3"
+    "local": "br:ghcr.io/anthony-c-martin/bicep-ext-local:0.1.21",
+    "kubernetes": "br:ghcr.io/anthony-c-martin/bicep-ext-kubernetes:0.1.4"
   },
   "implicitExtensions": []
 }
