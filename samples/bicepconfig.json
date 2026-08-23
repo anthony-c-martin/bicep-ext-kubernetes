@@ -1,0 +1,10 @@
+{
+  "experimentalFeaturesEnabled": {
+    "localDeploy": true,
+    "ociEnabled": true
+  },
+  "extensions": {
+    "kubernetes": "br:ghcr.io/anthony-c-martin/bicep-ext-kubernetes:0.0.1"
+  },
+  "implicitExtensions": []
+}

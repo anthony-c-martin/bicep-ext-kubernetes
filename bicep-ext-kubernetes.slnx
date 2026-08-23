@@ -1,1 +1,4 @@
-<Solution />
+<Solution>
+  <Project Path="src/Bicep.Extension.Kubernetes.Tests/Bicep.Extension.Kubernetes.Tests.csproj" />
+  <Project Path="src/Bicep.Extension.Kubernetes/Bicep.Extension.Kubernetes.csproj" />
+</Solution>

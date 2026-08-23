@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Bicep.Extension.Kubernetes</RootNamespace>
+    <AssemblyName>bicep-ext-kubernetes</AssemblyName>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <RuntimeIdentifiers>win-x64;win-arm64;osx-arm64;linux-x64;linux-arm64</RuntimeIdentifiers>
+    <!-- Overridden by the release pipeline via -p:Version=<version>. -->
+    <Version>0.0.1-dev</Version>
+  </PropertyGroup>
+
+  <!--
+    Keep the debug output free of a runtime identifier subdirectory so that .vscode/launch.json can reference the
+    binary by a fixed path regardless of the developer's platform. Release builds keep the RID, because
+    scripts/publish.sh builds every RID in turn and they must not overwrite each other.
+  -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Bicep.Local.Extension" Version="0.46.1" />
+    <PackageReference Include="Azure.Deployments.Extensibility.Providers.Kubernetes" Version="0.1.191" />
+  </ItemGroup>
+
+  <!--
+    Bicep type definitions are vendored verbatim from Azure/bicep-types-k8s (see scripts/sync-types.ps1)
+    and served at runtime by EmbeddedTypeDefinitionBuilder. Only the machine-readable .json files are
+    embedded; the sibling .md files are kept in the repo purely as human-readable documentation.
+  -->
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)../../types/**/*.json">
+      <!-- RecursiveDir is separated by '\' on Windows; EmbeddedTypeDefinitionBuilder normalises it. -->
+      <LogicalName>types/%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Locally published extension binary (see scripts/publish.ps1)
+/bicep-ext-kubernetes
