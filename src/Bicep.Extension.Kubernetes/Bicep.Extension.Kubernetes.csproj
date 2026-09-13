@@ -28,7 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Bicep.Local.Extension" Version="0.46.1" />
+    <PackageReference Include="Azure.Bicep.Local.Extension" Version="0.47.16" />
     <PackageReference Include="Azure.Deployments.Extensibility.Providers.Kubernetes" Version="0.1.191" />
   </ItemGroup>
 
